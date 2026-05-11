@@ -7,6 +7,7 @@ export type TripDay = {
   date: string;
   weekday: string;
   city: string;
+  segment: string;
   lodging: string;
   dailyContext: string;
   railSchedule: string;
@@ -34,21 +35,27 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 
 export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
   const [selectedDate, setSelectedDate] = useState(days[0]?.date ?? "");
+  const [selectedSegment, setSelectedSegment] = useState("All");
 
   const selectedDay = useMemo(
     () => days.find((day) => day.date === selectedDate) ?? days[0],
     [days, selectedDate],
   );
+  const segments = useMemo(
+    () => ["All", ...Array.from(new Set(days.map((day) => day.segment)))],
+    [days],
+  );
+  const visibleDays = useMemo(
+    () =>
+      selectedSegment === "All"
+        ? days
+        : days.filter((day) => day.segment === selectedSegment),
+    [days, selectedSegment],
+  );
 
   if (!selectedDay) {
     return null;
   }
-
-  const cityStage = selectedDay.city.includes("Inverness")
-    ? "Inverness base"
-    : selectedDay.city.includes("to")
-      ? "Travel day"
-      : "Edinburgh base";
 
   return (
     <main className="min-h-dvh bg-[#f7f4ee] text-[#19211f]">
@@ -68,13 +75,56 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
             </div>
           </div>
 
+          <nav aria-label="Trip sections" className="grid grid-cols-2 gap-2">
+            {segments.map((segment) => {
+              const isSelected = segment === selectedSegment;
+
+              return (
+                <button
+                  aria-pressed={isSelected}
+                  className={`h-10 border px-3 text-sm font-bold ${
+                    isSelected
+                      ? "border-[#0f766e] bg-[#0f766e] text-white"
+                      : "border-[#d8d0c3] bg-white text-[#43524e]"
+                  }`}
+                  key={segment}
+                  onClick={() => {
+                    setSelectedSegment(segment);
+
+                    const firstDay =
+                      segment === "All"
+                        ? days[0]
+                        : days.find((day) => day.segment === segment);
+
+                    if (firstDay) {
+                      setSelectedDate(firstDay.date);
+                    }
+                  }}
+                  type="button"
+                >
+                  {segment}
+                </button>
+              );
+            })}
+          </nav>
+
           <label className="block">
             <span className="text-sm font-bold text-[#19211f]">
               Choose travel day
             </span>
             <select
               className="mt-2 h-12 w-full appearance-none border border-[#aeb8b2] bg-white px-4 text-base font-semibold text-[#10231f] shadow-sm outline-none focus:border-[#0f766e] focus:ring-2 focus:ring-[#0f766e]/20"
-              onChange={(event) => setSelectedDate(event.target.value)}
+              onChange={(event) => {
+                const nextDay = days.find(
+                  (day) => day.date === event.target.value,
+                );
+
+                setSelectedDate(event.target.value);
+
+                if (nextDay) {
+                  setSelectedSegment(nextDay.segment);
+                }
+              }}
               value={selectedDate}
             >
               {days.map((day) => (
@@ -88,7 +138,7 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
           </label>
 
           <nav aria-label="Trip days" className="flex gap-2 overflow-x-auto pb-1">
-            {days.map((day) => {
+            {visibleDays.map((day) => {
               const isSelected = day.date === selectedDay.date;
 
               return (
@@ -125,7 +175,7 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
                 </h2>
               </div>
               <p className="rounded-full bg-[#e6f2ef] px-3 py-1 text-sm font-semibold text-[#0f5f59]">
-                {cityStage}
+                {selectedDay.segment}
               </p>
             </div>
 
@@ -141,7 +191,7 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
 
           <div className="grid gap-3">
             <InfoPanel title="Daily Context" value={selectedDay.dailyContext} />
-            <InfoPanel title="Rail Schedule" value={selectedDay.railSchedule} />
+            <InfoPanel title="Rail / Transit" value={selectedDay.railSchedule} />
             <InfoPanel title="What to Expect" value={selectedDay.whatToExpect} />
             <LocalEventsPanel day={selectedDay} key={selectedDay.date} />
           </div>

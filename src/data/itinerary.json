@@ -1,16 +1,44 @@
 {
-  "tripName": "Scotland Travel",
-  "route": "Edinburgh to Inverness",
+  "tripName": "UK Travel",
+  "route": "DFW to Edinburgh, Inverness, London, and home",
   "sourceFile": "/Users/speedermac/Documents/UK-itenarary.txt",
   "days": [
     {
       "day": 1,
+      "date": "2026-06-02",
+      "weekday": "Tuesday",
+      "city": "DFW to Edinburgh",
+      "segment": "Travel",
+      "lodging": "Overnight flight to Edinburgh.",
+      "dailyContext": "Begin the trip from DFW with a Philadelphia connection and overnight travel to Scotland.",
+      "railSchedule": "AA Flight 2947 leaves DFW at 12:00 pm and arrives Philadelphia at 4:23 pm. Philadelphia to Edinburgh departs at 7:35 pm and arrives Edinburgh at 7:40 am on June 3.",
+      "whatToExpect": "Long travel day. Keep arrival documents, chargers, and first-day essentials easy to reach.",
+      "localEvents": {
+        "summary": "Travel day. Local event searching is less useful until arrival in Edinburgh.",
+        "searchQuery": "Edinburgh events June 3 2026",
+        "sources": [
+          {
+            "name": "VisitScotland events",
+            "url": "https://www.visitscotland.com/events"
+          }
+        ]
+      },
+      "sourceNotes": [
+        "DFW to Edinburgh.",
+        "AA Flight 2947.",
+        "Leaves DFW at 12:00 pm, arrives Philadelphia at 4:23 pm.",
+        "Leaves Philadelphia at 7:35 pm, arrives Edinburgh at 7:40 am."
+      ]
+    },
+    {
+      "day": 2,
       "date": "2026-06-03",
       "weekday": "Wednesday",
       "city": "Edinburgh",
+      "segment": "Edinburgh",
       "lodging": "Residence Inn by Marriott, 36 Simpson Loan Quartermile",
-      "dailyContext": "Arrive in Edinburgh at 7:40 am after the DFW to Philadelphia to Edinburgh flight. Check in, settle near Quartermile, and keep the day flexible.",
-      "railSchedule": "No rail travel scheduled.",
+      "dailyContext": "Arrive in Edinburgh at 7:40 am, check in, settle near Quartermile, and keep the day flexible.",
+      "railSchedule": "No rail travel scheduled after arrival.",
       "whatToExpect": "Low-pressure arrival day with time to explore Edinburgh and nearby attractions. Dinner reservation at Dishoom at 5:45 pm.",
       "localEvents": {
         "summary": "Use the event links to check Edinburgh listings for this arrival day, then save the best options here.",
@@ -27,15 +55,17 @@
         ]
       },
       "sourceNotes": [
-        "AA Flight 2947 leaves DFW at 12:00 pm and connects through Philadelphia.",
-        "Philadelphia to Edinburgh departs at 7:35 pm and arrives at 7:40 am."
+        "Hotel: Residence Inn by Marriott, 36 Simpson Loan Quartermile.",
+        "Restaurant: Dishoom reservations at 5:45.",
+        "No set schedule, explore Edinburgh and nearby attractions."
       ]
     },
     {
-      "day": 2,
+      "day": 3,
       "date": "2026-06-04",
       "weekday": "Thursday",
       "city": "Edinburgh",
+      "segment": "Edinburgh",
       "lodging": "Residence Inn by Marriott, 36 Simpson Loan Quartermile",
       "dailyContext": "Edinburgh base day with a scheduled St Andrews golf history excursion in the afternoon.",
       "railSchedule": "No rail travel scheduled.",
@@ -55,14 +85,16 @@
         ]
       },
       "sourceNotes": [
-        "Excursion: St Andrews Golf Origins and Old Course History Tour conducted by Get Your Guide."
+        "Excursion: St Andrews Golf Origins and Old Course History Tour conducted by Get Your Guide.",
+        "Timing: Starts at 1:55 pm, tour is 75 minutes."
       ]
     },
     {
-      "day": 3,
+      "day": 4,
       "date": "2026-06-05",
       "weekday": "Friday",
       "city": "Edinburgh",
+      "segment": "Edinburgh",
       "lodging": "Residence Inn by Marriott, 36 Simpson Loan Quartermile",
       "dailyContext": "Free day in Edinburgh.",
       "railSchedule": "No rail travel scheduled.",
@@ -84,10 +116,11 @@
       "sourceNotes": ["Free day."]
     },
     {
-      "day": 4,
+      "day": 5,
       "date": "2026-06-06",
       "weekday": "Saturday",
       "city": "Edinburgh to Inverness",
+      "segment": "Travel",
       "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
       "dailyContext": "Final Edinburgh morning, then transfer north to Inverness and check in around 8:00 pm.",
       "railSchedule": "LNER train leaves Edinburgh at 4:33 pm and arrives Inverness at 8:04 pm.",
@@ -99,23 +132,20 @@
           {
             "name": "VisitScotland Inverness",
             "url": "https://www.visitscotland.com/places-to-go/inverness"
-          },
-          {
-            "name": "Highland Pride listing",
-            "url": "https://www.enjoy.ly/uk/activity/51439511/highland-pride-inverness-inverness"
           }
         ]
       },
       "sourceNotes": [
-        "LNER train from Edinburgh to Inverness leaves at 4:33 pm and arrives Inverness at 8:04 pm.",
+        "LNER train from Edinburgh to Inverness leaves at 4:33 pm, arrives Inverness at 8:04 pm.",
         "Check into Mercure Inverness Hotel at 8:00 pm."
       ]
     },
     {
-      "day": 5,
+      "day": 6,
       "date": "2026-06-07",
       "weekday": "Sunday",
       "city": "Inverness",
+      "segment": "Inverness",
       "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
       "dailyContext": "Inverness base day with a full-day Loch Ness excursion.",
       "railSchedule": "No rail travel scheduled.",
@@ -139,10 +169,11 @@
       ]
     },
     {
-      "day": 6,
+      "day": 7,
       "date": "2026-06-08",
       "weekday": "Monday",
       "city": "Inverness",
+      "segment": "Inverness",
       "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
       "dailyContext": "Free day in Inverness.",
       "railSchedule": "No rail travel scheduled.",
@@ -164,10 +195,11 @@
       "sourceNotes": ["Free day."]
     },
     {
-      "day": 7,
+      "day": 8,
       "date": "2026-06-09",
       "weekday": "Tuesday",
       "city": "Inverness",
+      "segment": "Inverness",
       "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
       "dailyContext": "Inverness base day with a long Isle of Skye excursion.",
       "railSchedule": "No rail travel scheduled.",
@@ -188,6 +220,227 @@
       },
       "sourceNotes": [
         "Excursion: Isle of Skye, Fairy Pools and Castles Day Trip, all-day tour from 7:30 am to 7:00 pm."
+      ]
+    },
+    {
+      "day": 9,
+      "date": "2026-06-10",
+      "weekday": "Wednesday",
+      "city": "Inverness",
+      "segment": "Inverness",
+      "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
+      "dailyContext": "Free day in Inverness.",
+      "railSchedule": "No rail travel scheduled.",
+      "whatToExpect": "Open schedule for rest, local exploring, riverside walks, or flexible Highland plans.",
+      "localEvents": {
+        "summary": "Open Inverness day. Search local listings and save any strong options here.",
+        "searchQuery": "Inverness events June 10 2026",
+        "sources": [
+          {
+            "name": "VisitScotland Inverness",
+            "url": "https://www.visitscotland.com/places-to-go/inverness"
+          },
+          {
+            "name": "Eden Court what's on",
+            "url": "https://eden-court.co.uk/whats-on/"
+          }
+        ]
+      },
+      "sourceNotes": ["Free day."]
+    },
+    {
+      "day": 10,
+      "date": "2026-06-11",
+      "weekday": "Thursday",
+      "city": "Inverness",
+      "segment": "Inverness",
+      "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
+      "dailyContext": "Inverness base day with a full-day Speyside whisky excursion.",
+      "railSchedule": "No rail travel scheduled.",
+      "whatToExpect": "The Spirit of Speyside Whisky Tour runs from 8:30 am to 6:15 pm.",
+      "localEvents": {
+        "summary": "Search Inverness evening events only; the whisky tour takes most of the day.",
+        "searchQuery": "Inverness events June 11 2026 evening",
+        "sources": [
+          {
+            "name": "VisitScotland Inverness",
+            "url": "https://www.visitscotland.com/places-to-go/inverness"
+          },
+          {
+            "name": "Eden Court what's on",
+            "url": "https://eden-court.co.uk/whats-on/"
+          }
+        ]
+      },
+      "sourceNotes": [
+        "Excursion: The Spirit of Speyside Whisky Tour, all-day tour from 8:30 am to 6:15 pm."
+      ]
+    },
+    {
+      "day": 11,
+      "date": "2026-06-12",
+      "weekday": "Friday",
+      "city": "Inverness to London",
+      "segment": "Travel",
+      "lodging": "Double Tree, 7 Pepys Street, London",
+      "dailyContext": "Fly from Inverness to London, check into the Double Tree, and keep the rest of the day free.",
+      "railSchedule": "British Airways flight 1421 leaves Inverness at 10:25 am and arrives LHR at 12:05 pm.",
+      "whatToExpect": "Travel and transition day. After arriving in London, keep plans flexible around check-in and energy levels.",
+      "localEvents": {
+        "summary": "Search London evening events after arrival and check-in.",
+        "searchQuery": "London events June 12 2026 evening",
+        "sources": [
+          {
+            "name": "Visit London what's on",
+            "url": "https://www.visitlondon.com/things-to-do/whats-on"
+          },
+          {
+            "name": "Time Out London",
+            "url": "https://www.timeout.com/london/things-to-do"
+          }
+        ]
+      },
+      "sourceNotes": [
+        "British Airways flight 1421.",
+        "Leaves Inverness at 10:25 am, arrives LHR at 12:05 pm.",
+        "Hotel: Double Tree, 7 Pepys Street.",
+        "Free day."
+      ]
+    },
+    {
+      "day": 12,
+      "date": "2026-06-13",
+      "weekday": "Saturday",
+      "city": "London",
+      "segment": "London",
+      "lodging": "Double Tree, 7 Pepys Street, London",
+      "dailyContext": "London base day with the Windsor, Bath, and Stonehenge excursion.",
+      "railSchedule": "No rail travel scheduled in the source itinerary.",
+      "whatToExpect": "Windsor, Bath and Stonehenge all-day trip runs from 7:30 am to 7:00 pm with the Monroes.",
+      "localEvents": {
+        "summary": "Search late London listings only; the day trip returns around 7:00 pm.",
+        "searchQuery": "London events June 13 2026 evening",
+        "sources": [
+          {
+            "name": "Visit London what's on",
+            "url": "https://www.visitlondon.com/things-to-do/whats-on"
+          },
+          {
+            "name": "Time Out London",
+            "url": "https://www.timeout.com/london/things-to-do"
+          }
+        ]
+      },
+      "sourceNotes": [
+        "Excursion: Windsor, Bath and Stonehenge all-day trip from 7:30 am to 7:00 pm with the Monroes."
+      ]
+    },
+    {
+      "day": 13,
+      "date": "2026-06-14",
+      "weekday": "Sunday",
+      "city": "London",
+      "segment": "London",
+      "lodging": "Double Tree, 7 Pepys Street, London",
+      "dailyContext": "London day with meetup plans pending.",
+      "railSchedule": "No rail travel scheduled in the source itinerary.",
+      "whatToExpect": "Meet up with Ashok Uncle and Anita, details TBD.",
+      "localEvents": {
+        "summary": "Search London events after meetup plans are clearer.",
+        "searchQuery": "London events June 14 2026",
+        "sources": [
+          {
+            "name": "Visit London what's on",
+            "url": "https://www.visitlondon.com/things-to-do/whats-on"
+          },
+          {
+            "name": "Time Out London",
+            "url": "https://www.timeout.com/london/things-to-do"
+          }
+        ]
+      },
+      "sourceNotes": [
+        "Sunday June 14 through Tuesday June 16: meet up with Ashok Uncle and Anita, TBD."
+      ]
+    },
+    {
+      "day": 14,
+      "date": "2026-06-15",
+      "weekday": "Monday",
+      "city": "London",
+      "segment": "London",
+      "lodging": "Double Tree, 7 Pepys Street, London",
+      "dailyContext": "London day with meetup plans pending.",
+      "railSchedule": "No rail travel scheduled in the source itinerary.",
+      "whatToExpect": "Meet up with Ashok Uncle and Anita, details TBD.",
+      "localEvents": {
+        "summary": "Search London events after meetup plans are clearer.",
+        "searchQuery": "London events June 15 2026",
+        "sources": [
+          {
+            "name": "Visit London what's on",
+            "url": "https://www.visitlondon.com/things-to-do/whats-on"
+          },
+          {
+            "name": "Time Out London",
+            "url": "https://www.timeout.com/london/things-to-do"
+          }
+        ]
+      },
+      "sourceNotes": [
+        "Sunday June 14 through Tuesday June 16: meet up with Ashok Uncle and Anita, TBD."
+      ]
+    },
+    {
+      "day": 15,
+      "date": "2026-06-16",
+      "weekday": "Tuesday",
+      "city": "London",
+      "segment": "London",
+      "lodging": "Double Tree, 7 Pepys Street, London",
+      "dailyContext": "London day with meetup plans pending.",
+      "railSchedule": "No rail travel scheduled in the source itinerary.",
+      "whatToExpect": "Meet up with Ashok Uncle and Anita, details TBD.",
+      "localEvents": {
+        "summary": "Search London events after meetup plans are clearer.",
+        "searchQuery": "London events June 16 2026",
+        "sources": [
+          {
+            "name": "Visit London what's on",
+            "url": "https://www.visitlondon.com/things-to-do/whats-on"
+          },
+          {
+            "name": "Time Out London",
+            "url": "https://www.timeout.com/london/things-to-do"
+          }
+        ]
+      },
+      "sourceNotes": [
+        "Sunday June 14 through Tuesday June 16: meet up with Ashok Uncle and Anita, TBD."
+      ]
+    },
+    {
+      "day": 16,
+      "date": "2026-06-17",
+      "weekday": "Wednesday",
+      "city": "London to DFW",
+      "segment": "Travel",
+      "lodging": "Return travel day.",
+      "dailyContext": "Return from London Heathrow to DFW.",
+      "railSchedule": "American Airlines Flight 6950 leaves LHR at 12:55 pm and arrives DFW at 5:05 pm.",
+      "whatToExpect": "Departure day. Build in time for airport transfer, check-in, security, and the long flight home.",
+      "localEvents": {
+        "summary": "Return travel day. Local event searching is not expected to be useful.",
+        "searchQuery": "London events June 17 2026 morning",
+        "sources": [
+          {
+            "name": "Visit London what's on",
+            "url": "https://www.visitlondon.com/things-to-do/whats-on"
+          }
+        ]
+      },
+      "sourceNotes": [
+        "American Airlines Flight 6950 leaves LHR at 12:55 pm and arrives DFW at 5:05 pm."
       ]
     }
   ]
