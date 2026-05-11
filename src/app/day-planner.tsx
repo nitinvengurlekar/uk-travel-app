@@ -33,6 +33,14 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
 });
 
+const sectionStyles: Record<string, string> = {
+  All: "from-[#1b4332] via-[#45624d] to-[#d7c7a3]",
+  Travel: "from-[#243447] via-[#5f7f96] to-[#d8c29d]",
+  Edinburgh: "from-[#344e41] via-[#7b4f45] to-[#d7c7a3]",
+  Inverness: "from-[#18392b] via-[#3f6f59] to-[#b7c7a4]",
+  London: "from-[#26364c] via-[#8b3f46] to-[#d6b16c]",
+};
+
 export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
   const [selectedDate, setSelectedDate] = useState(days[0]?.date ?? "");
   const [selectedSegment, setSelectedSegment] = useState("All");
@@ -57,21 +65,41 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
     return null;
   }
 
+  const progressPercentage = Math.round((selectedDay.day / days.length) * 100);
+  const selectedStyle =
+    sectionStyles[selectedDay.segment] ?? sectionStyles[selectedSegment];
+  const dayType = getDayType(selectedDay);
+
   return (
     <main className="min-h-dvh bg-[#f7f4ee] text-[#19211f]">
-      <section className="mx-auto flex min-h-dvh w-full max-w-3xl flex-col px-5 pb-6 pt-[max(18px,env(safe-area-inset-top))]">
-        <header className="space-y-4 border-b border-[#d8d0c3] pb-4">
+      <section className="mx-auto flex min-h-dvh w-full max-w-3xl flex-col px-5 pb-6">
+        <header
+          className={`-mx-5 space-y-4 bg-gradient-to-br ${selectedStyle} px-5 pb-5 pt-[max(18px,env(safe-area-inset-top))] text-white shadow-sm`}
+        >
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="text-sm font-semibold uppercase text-[#b3261e]">
+              <p className="text-sm font-semibold uppercase text-white/80">
                 {route}
               </p>
-              <h1 className="mt-1 text-3xl font-bold leading-tight text-[#10231f]">
+              <h1 className="mt-1 text-3xl font-bold leading-tight text-white">
                 {tripName}
               </h1>
             </div>
-            <div className="shrink-0 rounded-full bg-[#0f766e] px-3 py-1 text-sm font-semibold text-white">
-              {days.length} days
+            <div className="shrink-0 border border-white/30 bg-white/15 px-3 py-1 text-sm font-semibold text-white backdrop-blur">
+              Day {selectedDay.day}/{days.length}
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <div className="flex items-center justify-between text-xs font-bold uppercase text-white/80">
+              <span>{selectedDay.segment}</span>
+              <span>{progressPercentage}%</span>
+            </div>
+            <div className="h-2 overflow-hidden bg-white/25">
+              <div
+                className="h-full bg-white"
+                style={{ width: `${progressPercentage}%` }}
+              />
             </div>
           </div>
 
@@ -82,10 +110,10 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
               return (
                 <button
                   aria-pressed={isSelected}
-                  className={`h-10 border px-3 text-sm font-bold ${
+                  className={`h-10 border px-3 text-sm font-bold backdrop-blur ${
                     isSelected
-                      ? "border-[#0f766e] bg-[#0f766e] text-white"
-                      : "border-[#d8d0c3] bg-white text-[#43524e]"
+                      ? "border-white bg-white text-[#10231f]"
+                      : "border-white/30 bg-white/10 text-white"
                   }`}
                   key={segment}
                   onClick={() => {
@@ -109,11 +137,11 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
           </nav>
 
           <label className="block">
-            <span className="text-sm font-bold text-[#19211f]">
+            <span className="text-sm font-bold text-white">
               Choose travel day
             </span>
             <select
-              className="mt-2 h-12 w-full appearance-none border border-[#aeb8b2] bg-white px-4 text-base font-semibold text-[#10231f] shadow-sm outline-none focus:border-[#0f766e] focus:ring-2 focus:ring-[#0f766e]/20"
+              className="mt-2 h-12 w-full appearance-none border border-white/40 bg-white px-4 text-base font-semibold text-[#10231f] shadow-sm outline-none focus:border-white focus:ring-2 focus:ring-white/30"
               onChange={(event) => {
                 const nextDay = days.find(
                   (day) => day.date === event.target.value,
@@ -146,8 +174,8 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
                   aria-pressed={isSelected}
                   className={`h-10 min-w-10 shrink-0 border px-3 text-sm font-bold ${
                     isSelected
-                      ? "border-[#0f766e] bg-[#0f766e] text-white"
-                      : "border-[#d8d0c3] bg-white text-[#43524e]"
+                      ? "border-white bg-white text-[#10231f]"
+                      : "border-white/30 bg-white/10 text-white"
                   }`}
                   key={day.date}
                   onClick={() => setSelectedDate(day.date)}
@@ -174,9 +202,14 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
                   {selectedDay.city}
                 </h2>
               </div>
-              <p className="rounded-full bg-[#e6f2ef] px-3 py-1 text-sm font-semibold text-[#0f5f59]">
-                {selectedDay.segment}
-              </p>
+              <div className="space-y-2 text-right">
+                <p className="bg-[#e6f2ef] px-3 py-1 text-sm font-semibold text-[#0f5f59]">
+                  {selectedDay.segment}
+                </p>
+                <p className="bg-[#f7eee2] px-3 py-1 text-sm font-semibold text-[#8a3a2b]">
+                  {dayType}
+                </p>
+              </div>
             </div>
 
             <div className="mt-4 border-t border-[#ece5dc] pt-4">
@@ -202,6 +235,7 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
 }
 
 function LocalEventsPanel({ day }: { day: TripDay }) {
+  const [isOpen, setIsOpen] = useState(false);
   const storageKey = `local-events-summary-${day.date}`;
   const storageEvent = `local-events-summary-change:${storageKey}`;
   const savedSummary = useSyncExternalStore(
@@ -227,11 +261,36 @@ function LocalEventsPanel({ day }: { day: TripDay }) {
   )}`;
 
   return (
-    <section className="border-l-4 border-[#b3261e] bg-white px-4 py-3 shadow-sm">
-      <div className="space-y-3">
+    <section className="border-l-4 border-[#b3261e] bg-white shadow-sm">
+      <button
+        aria-expanded={isOpen}
+        className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left"
+        onClick={() => setIsOpen((current) => !current)}
+        type="button"
+      >
+        <span>
+          <span className="block text-sm font-bold text-[#19211f]">
+            Local Events
+          </span>
+          <span className="mt-1 block text-sm leading-6 text-[#43524e]">
+            {summary}
+          </span>
+        </span>
+        <span className="shrink-0 text-sm font-bold text-[#b3261e]">
+          {isOpen ? "Hide" : "Open"}
+        </span>
+      </button>
+
+      {isOpen ? (
+        <div className="space-y-3 border-t border-[#ece5dc] px-4 py-3">
         <div>
-          <h3 className="text-sm font-bold text-[#19211f]">Local Events</h3>
-          <p className="mt-1 text-sm leading-6 text-[#43524e]">{summary}</p>
+          <h3 className="text-sm font-bold text-[#19211f]">
+            Search and Save
+          </h3>
+          <p className="mt-1 text-sm leading-6 text-[#43524e]">
+            Open a day-specific search, then save the useful event summary here
+            for offline reference.
+          </p>
         </div>
 
         <a
@@ -243,9 +302,8 @@ function LocalEventsPanel({ day }: { day: TripDay }) {
         >
           Search web for this day
         </a>
-      </div>
 
-      <div className="mt-3 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {day.localEvents.sources.map((source) => (
           <a
             className="border border-[#d8d0c3] bg-[#f7f4ee] px-3 py-2 text-sm font-semibold text-[#43524e]"
@@ -273,6 +331,8 @@ function LocalEventsPanel({ day }: { day: TripDay }) {
           value={savedSummary}
         />
       </label>
+        </div>
+      ) : null}
     </section>
   );
 }
@@ -284,4 +344,26 @@ function InfoPanel({ title, value }: { title: string; value: string }) {
       <p className="mt-1 text-sm leading-6 text-[#43524e]">{value}</p>
     </section>
   );
+}
+
+function getDayType(day: TripDay) {
+  const combined = `${day.dailyContext} ${day.railSchedule} ${day.whatToExpect}`;
+
+  if (day.segment === "Travel") {
+    return combined.toLowerCase().includes("flight") ? "Flight" : "Transit";
+  }
+
+  if (combined.toLowerCase().includes("free day")) {
+    return "Free Day";
+  }
+
+  if (combined.toLowerCase().includes("meet up")) {
+    return "Meetup";
+  }
+
+  if (combined.toLowerCase().includes("tour") || combined.toLowerCase().includes("trip")) {
+    return "Tour";
+  }
+
+  return "Explore";
 }
