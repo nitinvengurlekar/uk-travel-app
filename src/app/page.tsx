@@ -1,65 +1,86 @@
-import Image from "next/image";
+import itinerary from "@/data/itinerary.json";
+
+type TripDay = {
+  day: number;
+  date: string;
+  weekday: string;
+  city: string;
+  lodging: string;
+  dailyContext: string;
+  railSchedule: string;
+  whatToExpect: string;
+};
+
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+  month: "short",
+  day: "numeric",
+});
 
 export default function Home() {
+  const days = itinerary.days as TripDay[];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="min-h-dvh bg-[#f7f4ee] text-[#19211f]">
+      <section className="mx-auto flex w-full max-w-3xl flex-col px-5 pb-8 pt-[max(20px,env(safe-area-inset-top))]">
+        <header className="sticky top-0 z-10 -mx-5 border-b border-[#d8d0c3] bg-[#f7f4ee]/95 px-5 py-4 backdrop-blur">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold uppercase text-[#b3261e]">
+                {itinerary.route}
+              </p>
+              <h1 className="mt-1 text-3xl font-bold leading-tight text-[#10231f]">
+                {itinerary.tripName}
+              </h1>
+            </div>
+            <div className="shrink-0 rounded-full bg-[#0f766e] px-3 py-1 text-sm font-semibold text-white">
+              {days.length} days
+            </div>
+          </div>
+        </header>
+
+        <div className="space-y-4 py-5">
+          {days.map((day) => (
+            <article
+              className="border border-[#d8d0c3] bg-white p-4 shadow-sm"
+              key={day.date}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold text-[#b3261e]">
+                    Day {day.day} · {day.weekday},{" "}
+                    {dateFormatter.format(new Date(`${day.date}T12:00:00`))}
+                  </p>
+                  <h2 className="mt-1 text-2xl font-bold leading-tight text-[#10231f]">
+                    {day.city}
+                  </h2>
+                </div>
+                <p className="rounded-full bg-[#e6f2ef] px-3 py-1 text-sm font-semibold text-[#0f5f59]">
+                  {day.city.includes("Inverness") ? "North" : "Capital"}
+                </p>
+              </div>
+
+              <p className="mt-3 text-sm leading-6 text-[#596763]">
+                {day.lodging}
+              </p>
+
+              <div className="mt-4 grid gap-3">
+                <InfoBlock title="Daily Context" value={day.dailyContext} />
+                <InfoBlock title="Rail Schedule" value={day.railSchedule} />
+                <InfoBlock title="What to Expect" value={day.whatToExpect} />
+              </div>
+            </article>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </main>
+  );
+}
+
+function InfoBlock({ title, value }: { title: string; value: string }) {
+  return (
+    <section className="border-l-4 border-[#0f766e] bg-[#f7f4ee] px-3 py-2">
+      <h3 className="text-sm font-bold text-[#19211f]">{title}</h3>
+      <p className="mt-1 text-sm leading-6 text-[#43524e]">{value}</p>
+    </section>
   );
 }

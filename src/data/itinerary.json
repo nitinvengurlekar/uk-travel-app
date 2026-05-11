@@ -1,0 +1,96 @@
+{
+  "tripName": "Scotland Travel",
+  "route": "Edinburgh to Inverness",
+  "sourceFile": "/Users/speedermac/Documents/UK-itenarary.txt",
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-06-03",
+      "weekday": "Wednesday",
+      "city": "Edinburgh",
+      "lodging": "Residence Inn by Marriott, 36 Simpson Loan Quartermile",
+      "dailyContext": "Arrive in Edinburgh at 7:40 am after the DFW to Philadelphia to Edinburgh flight. Check in, settle near Quartermile, and keep the day flexible.",
+      "railSchedule": "No rail travel scheduled.",
+      "whatToExpect": "Low-pressure arrival day with time to explore Edinburgh and nearby attractions. Dinner reservation at Dishoom at 5:45 pm.",
+      "sourceNotes": [
+        "AA Flight 2947 leaves DFW at 12:00 pm and connects through Philadelphia.",
+        "Philadelphia to Edinburgh departs at 7:35 pm and arrives at 7:40 am."
+      ]
+    },
+    {
+      "day": 2,
+      "date": "2026-06-04",
+      "weekday": "Thursday",
+      "city": "Edinburgh",
+      "lodging": "Residence Inn by Marriott, 36 Simpson Loan Quartermile",
+      "dailyContext": "Edinburgh base day with a scheduled St Andrews golf history excursion in the afternoon.",
+      "railSchedule": "No rail travel scheduled.",
+      "whatToExpect": "St Andrews Golf Origins and Old Course History Tour through Get Your Guide starts at 1:55 pm and lasts 75 minutes.",
+      "sourceNotes": [
+        "Excursion: St Andrews Golf Origins and Old Course History Tour conducted by Get Your Guide."
+      ]
+    },
+    {
+      "day": 3,
+      "date": "2026-06-05",
+      "weekday": "Friday",
+      "city": "Edinburgh",
+      "lodging": "Residence Inn by Marriott, 36 Simpson Loan Quartermile",
+      "dailyContext": "Free day in Edinburgh.",
+      "railSchedule": "No rail travel scheduled.",
+      "whatToExpect": "Open schedule for Edinburgh neighborhoods, attractions, meals, rest, or weather-dependent choices.",
+      "sourceNotes": ["Free day."]
+    },
+    {
+      "day": 4,
+      "date": "2026-06-06",
+      "weekday": "Saturday",
+      "city": "Edinburgh to Inverness",
+      "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
+      "dailyContext": "Final Edinburgh morning, then transfer north to Inverness and check in around 8:00 pm.",
+      "railSchedule": "LNER train leaves Edinburgh at 4:33 pm and arrives Inverness at 8:04 pm.",
+      "whatToExpect": "Travel day with a late arrival into Inverness. Keep dinner and evening plans simple after check-in.",
+      "sourceNotes": [
+        "LNER train from Edinburgh to Inverness leaves at 4:33 pm and arrives Inverness at 8:04 pm.",
+        "Check into Mercure Inverness Hotel at 8:00 pm."
+      ]
+    },
+    {
+      "day": 5,
+      "date": "2026-06-07",
+      "weekday": "Sunday",
+      "city": "Inverness",
+      "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
+      "dailyContext": "Inverness base day with a full-day Loch Ness excursion.",
+      "railSchedule": "No rail travel scheduled.",
+      "whatToExpect": "The Complete Loch Ness Experience runs from 9:30 am to 5:00 pm.",
+      "sourceNotes": [
+        "Excursion: The Complete Loch Ness Experience, all-day tour from 9:30 am to 5:00 pm."
+      ]
+    },
+    {
+      "day": 6,
+      "date": "2026-06-08",
+      "weekday": "Monday",
+      "city": "Inverness",
+      "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
+      "dailyContext": "Free day in Inverness.",
+      "railSchedule": "No rail travel scheduled.",
+      "whatToExpect": "Open day for rest, local Inverness exploring, riverside walks, shopping, or a flexible add-on activity.",
+      "sourceNotes": ["Free day."]
+    },
+    {
+      "day": 7,
+      "date": "2026-06-09",
+      "weekday": "Tuesday",
+      "city": "Inverness",
+      "lodging": "Mercure Inverness Hotel, Church Street, Inverness",
+      "dailyContext": "Inverness base day with a long Isle of Skye excursion.",
+      "railSchedule": "No rail travel scheduled.",
+      "whatToExpect": "Isle of Skye, Fairy Pools and Castles Day Trip runs from 7:30 am to 7:00 pm.",
+      "sourceNotes": [
+        "Excursion: Isle of Skye, Fairy Pools and Castles Day Trip, all-day tour from 7:30 am to 7:00 pm."
+      ]
+    }
+  ]
+}
