@@ -12,6 +12,20 @@
       "dailyContext": "Arrive in Edinburgh at 7:40 am after the DFW to Philadelphia to Edinburgh flight. Check in, settle near Quartermile, and keep the day flexible.",
       "railSchedule": "No rail travel scheduled.",
       "whatToExpect": "Low-pressure arrival day with time to explore Edinburgh and nearby attractions. Dinner reservation at Dishoom at 5:45 pm.",
+      "localEvents": {
+        "summary": "Use the event links to check Edinburgh listings for this arrival day, then save the best options here.",
+        "searchQuery": "Edinburgh events June 3 2026",
+        "sources": [
+          {
+            "name": "VisitScotland events",
+            "url": "https://www.visitscotland.com/events"
+          },
+          {
+            "name": "Edinburgh June events",
+            "url": "https://edinburghtourist.co.uk/whats-on/june/"
+          }
+        ]
+      },
       "sourceNotes": [
         "AA Flight 2947 leaves DFW at 12:00 pm and connects through Philadelphia.",
         "Philadelphia to Edinburgh departs at 7:35 pm and arrives at 7:40 am."
@@ -26,6 +40,20 @@
       "dailyContext": "Edinburgh base day with a scheduled St Andrews golf history excursion in the afternoon.",
       "railSchedule": "No rail travel scheduled.",
       "whatToExpect": "St Andrews Golf Origins and Old Course History Tour through Get Your Guide starts at 1:55 pm and lasts 75 minutes.",
+      "localEvents": {
+        "summary": "Search Edinburgh and St Andrews listings around the afternoon tour window before adding evening options.",
+        "searchQuery": "Edinburgh St Andrews events June 4 2026",
+        "sources": [
+          {
+            "name": "VisitScotland events",
+            "url": "https://www.visitscotland.com/events"
+          },
+          {
+            "name": "Edinburgh June events",
+            "url": "https://edinburghtourist.co.uk/whats-on/june/"
+          }
+        ]
+      },
       "sourceNotes": [
         "Excursion: St Andrews Golf Origins and Old Course History Tour conducted by Get Your Guide."
       ]
@@ -39,6 +67,20 @@
       "dailyContext": "Free day in Edinburgh.",
       "railSchedule": "No rail travel scheduled.",
       "whatToExpect": "Open schedule for Edinburgh neighborhoods, attractions, meals, rest, or weather-dependent choices.",
+      "localEvents": {
+        "summary": "This is the best Edinburgh day for local events because the schedule is open.",
+        "searchQuery": "Edinburgh events June 5 2026",
+        "sources": [
+          {
+            "name": "VisitScotland events",
+            "url": "https://www.visitscotland.com/events"
+          },
+          {
+            "name": "Edinburgh June events",
+            "url": "https://edinburghtourist.co.uk/whats-on/june/"
+          }
+        ]
+      },
       "sourceNotes": ["Free day."]
     },
     {
@@ -50,6 +92,20 @@
       "dailyContext": "Final Edinburgh morning, then transfer north to Inverness and check in around 8:00 pm.",
       "railSchedule": "LNER train leaves Edinburgh at 4:33 pm and arrives Inverness at 8:04 pm.",
       "whatToExpect": "Travel day with a late arrival into Inverness. Keep dinner and evening plans simple after check-in.",
+      "localEvents": {
+        "summary": "Search Inverness evening listings, but keep expectations light because the train arrives at 8:04 pm.",
+        "searchQuery": "Inverness events June 6 2026 evening",
+        "sources": [
+          {
+            "name": "VisitScotland Inverness",
+            "url": "https://www.visitscotland.com/places-to-go/inverness"
+          },
+          {
+            "name": "Highland Pride listing",
+            "url": "https://www.enjoy.ly/uk/activity/51439511/highland-pride-inverness-inverness"
+          }
+        ]
+      },
       "sourceNotes": [
         "LNER train from Edinburgh to Inverness leaves at 4:33 pm and arrives Inverness at 8:04 pm.",
         "Check into Mercure Inverness Hotel at 8:00 pm."
@@ -64,6 +120,20 @@
       "dailyContext": "Inverness base day with a full-day Loch Ness excursion.",
       "railSchedule": "No rail travel scheduled.",
       "whatToExpect": "The Complete Loch Ness Experience runs from 9:30 am to 5:00 pm.",
+      "localEvents": {
+        "summary": "Look for Inverness evening events after the Loch Ness tour returns around 5:00 pm.",
+        "searchQuery": "Inverness events June 7 2026 evening",
+        "sources": [
+          {
+            "name": "VisitScotland Inverness",
+            "url": "https://www.visitscotland.com/places-to-go/inverness"
+          },
+          {
+            "name": "Inverness Walking and Wheeling Festival",
+            "url": "https://www.wawfest.com/"
+          }
+        ]
+      },
       "sourceNotes": [
         "Excursion: The Complete Loch Ness Experience, all-day tour from 9:30 am to 5:00 pm."
       ]
@@ -77,6 +147,20 @@
       "dailyContext": "Free day in Inverness.",
       "railSchedule": "No rail travel scheduled.",
       "whatToExpect": "Open day for rest, local Inverness exploring, riverside walks, shopping, or a flexible add-on activity.",
+      "localEvents": {
+        "summary": "This is the best Inverness day for local events because the schedule is open.",
+        "searchQuery": "Inverness events June 8 2026",
+        "sources": [
+          {
+            "name": "VisitScotland Inverness",
+            "url": "https://www.visitscotland.com/places-to-go/inverness"
+          },
+          {
+            "name": "Eden Court what's on",
+            "url": "https://eden-court.co.uk/whats-on/"
+          }
+        ]
+      },
       "sourceNotes": ["Free day."]
     },
     {
@@ -88,6 +172,20 @@
       "dailyContext": "Inverness base day with a long Isle of Skye excursion.",
       "railSchedule": "No rail travel scheduled.",
       "whatToExpect": "Isle of Skye, Fairy Pools and Castles Day Trip runs from 7:30 am to 7:00 pm.",
+      "localEvents": {
+        "summary": "Search late Inverness listings only; this is a long day trip returning around 7:00 pm.",
+        "searchQuery": "Inverness events June 9 2026 evening",
+        "sources": [
+          {
+            "name": "VisitScotland Inverness",
+            "url": "https://www.visitscotland.com/places-to-go/inverness"
+          },
+          {
+            "name": "Eden Court what's on",
+            "url": "https://eden-court.co.uk/whats-on/"
+          }
+        ]
+      },
       "sourceNotes": [
         "Excursion: Isle of Skye, Fairy Pools and Castles Day Trip, all-day tour from 7:30 am to 7:00 pm."
       ]
