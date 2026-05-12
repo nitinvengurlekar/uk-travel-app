@@ -2,6 +2,35 @@
   "tripName": "UK Travel",
   "route": "DFW to Edinburgh, Inverness, London, and home",
   "sourceFile": "/Users/speedermac/Documents/UK-itenarary.txt",
+  "hotels": [
+    {
+      "city": "Edinburgh",
+      "name": "Residence Inn by Marriott",
+      "address": "36 Simpson Loan Quartermile",
+      "checkIn": "2026-06-03",
+      "checkOut": "2026-06-06",
+      "phone": "Not listed in itinerary",
+      "notes": "Inferred from the Edinburgh hotel line in the itinerary."
+    },
+    {
+      "city": "Inverness",
+      "name": "Mercure Inverness Hotel",
+      "address": "Church Street, Inverness",
+      "checkIn": "2026-06-06",
+      "checkOut": "2026-06-12",
+      "phone": "Not listed in itinerary",
+      "notes": "Check-in noted around 8:00 pm on June 6."
+    },
+    {
+      "city": "London",
+      "name": "Double Tree",
+      "address": "7 Pepys Street, London",
+      "checkIn": "2026-06-12",
+      "checkOut": "2026-06-17",
+      "phone": "Not listed in itinerary",
+      "notes": "Itinerary notes this is the same hotel as the Monroes."
+    }
+  ],
   "days": [
     {
       "day": 1,

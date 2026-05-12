@@ -22,8 +22,19 @@ export type TripDay = {
   };
 };
 
+export type Hotel = {
+  city: string;
+  name: string;
+  address: string;
+  checkIn: string;
+  checkOut: string;
+  phone: string;
+  notes: string;
+};
+
 type DayPlannerProps = {
   days: TripDay[];
+  hotels: Hotel[];
   route: string;
   tripName: string;
 };
@@ -41,9 +52,13 @@ const sectionStyles: Record<string, string> = {
   London: "from-[#26364c] via-[#8b3f46] to-[#d6b16c]",
 };
 
-export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
-  const [selectedDate, setSelectedDate] = useState(days[0]?.date ?? "");
-  const [selectedSegment, setSelectedSegment] = useState("All");
+export function DayPlanner({ days, hotels, route, tripName }: DayPlannerProps) {
+  const [selectedDate, setSelectedDate] = useState(() =>
+    getInitialTripDate(days),
+  );
+  const [selectedSegment, setSelectedSegment] = useState(() =>
+    getInitialTripSegment(days),
+  );
 
   const selectedDay = useMemo(
     () => days.find((day) => day.date === selectedDate) ?? days[0],
@@ -59,6 +74,10 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
         ? days
         : days.filter((day) => day.segment === selectedSegment),
     [days, selectedSegment],
+  );
+  const activeHotel = useMemo(
+    () => (selectedDay ? getActiveHotel(selectedDay, hotels) : undefined),
+    [hotels, selectedDay],
   );
 
   if (!selectedDay) {
@@ -222,6 +241,8 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
             </div>
           </article>
 
+          {activeHotel ? <HotelCard hotel={activeHotel} /> : null}
+
           <div className="grid gap-3">
             <InfoPanel title="Daily Context" value={selectedDay.dailyContext} />
             <InfoPanel title="Rail / Transit" value={selectedDay.railSchedule} />
@@ -231,6 +252,63 @@ export function DayPlanner({ days, route, tripName }: DayPlannerProps) {
         </section>
       </section>
     </main>
+  );
+}
+
+function HotelCard({ hotel }: { hotel: Hotel }) {
+  const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    `${hotel.name} ${hotel.address}`,
+  )}`;
+
+  return (
+    <section className="border border-[#d8d0c3] bg-white p-4 shadow-sm">
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <p className="text-sm font-semibold text-[#b3261e]">Hotel Card</p>
+          <h3 className="mt-1 text-2xl font-bold leading-tight text-[#10231f]">
+            {hotel.name}
+          </h3>
+        </div>
+        <p className="bg-[#e6f2ef] px-3 py-1 text-sm font-semibold text-[#0f5f59]">
+          {hotel.city}
+        </p>
+      </div>
+
+      <div className="mt-4 grid gap-3 text-sm leading-6 text-[#43524e]">
+        <div>
+          <p className="text-xs font-bold uppercase text-[#596763]">Address</p>
+          <p>{hotel.address}</p>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+          <div>
+            <p className="text-xs font-bold uppercase text-[#596763]">
+              Check-in
+            </p>
+            <p>{formatDate(hotel.checkIn)}</p>
+          </div>
+          <div>
+            <p className="text-xs font-bold uppercase text-[#596763]">
+              Check-out
+            </p>
+            <p>{formatDate(hotel.checkOut)}</p>
+          </div>
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase text-[#596763]">Contact</p>
+          <p>{hotel.phone}</p>
+        </div>
+        <p>{hotel.notes}</p>
+      </div>
+
+      <a
+        className="mt-4 block w-full border border-[#0f766e] bg-[#0f766e] px-3 py-3 text-center text-sm font-bold text-white"
+        href={mapUrl}
+        rel="noreferrer"
+        target="_blank"
+      >
+        Open in Maps
+      </a>
+    </section>
   );
 }
 
@@ -366,4 +444,46 @@ function getDayType(day: TripDay) {
   }
 
   return "Explore";
+}
+
+function getInitialTripDate(days: TripDay[]) {
+  if (days.length === 0) {
+    return "";
+  }
+
+  const today = getLocalDateString(new Date());
+  const exactMatch = days.find((day) => day.date === today);
+
+  if (exactMatch) {
+    return exactMatch.date;
+  }
+
+  const nextDay = days.find((day) => day.date > today);
+
+  return nextDay?.date ?? days.at(-1)?.date ?? days[0].date;
+}
+
+function getInitialTripSegment(days: TripDay[]) {
+  const initialDate = getInitialTripDate(days);
+  const initialDay = days.find((day) => day.date === initialDate);
+
+  return initialDay?.segment ?? "All";
+}
+
+function getLocalDateString(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
+  return `${year}-${month}-${day}`;
+}
+
+function getActiveHotel(day: TripDay, hotels: Hotel[]) {
+  return hotels.find(
+    (hotel) => hotel.checkIn <= day.date && day.date < hotel.checkOut,
+  );
+}
+
+function formatDate(date: string) {
+  return dateFormatter.format(new Date(`${date}T12:00:00`));
 }
